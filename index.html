@@ -68,7 +68,7 @@
         #cover {
             position: relative; /* Bukan 'fixed' lagi */
             width: 100%; height: 100vh;
-            display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
         
         /* [BARU] Ornamen, Slider, dan Konten dari referensi */
@@ -91,9 +91,9 @@
             position: relative;
             overflow: hidden; /* Penting untuk efek kilau */
             border-radius: 30px;
-            padding: 7vh 25px; /* [DIUBAH] Padding atas/bawah diperbesar agar kartu lebih tinggi */
+            padding: 5vh 25px 13vh; /* [DIUBAH] Padding diubah agar kartu lebih panjang ke bawah */
             color: white;
-            margin-bottom: 2vh; /* [DIUBAH] Margin bawah dikurangi lagi agar kartu turun lebih ke bawah */
+            margin-bottom: 5vh; /* [DIUBAH] Margin bawah ditambah agar kartu turun lebih ke bawah */
             /* [DIUBAH] Mengganti animasi masuk dan menambahkan animasi mengambang */
             animation: card-enter 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards,
                        float 4s ease-in-out 1.5s infinite;
@@ -110,30 +110,39 @@
         .sweet-card .sweet-text {
             /* [DIUBAH] Mengganti font menjadi 'Parisienne' dan menyesuaikan ukuran */
             font-family: 'Parisienne', cursive;
-            font-size: clamp(4.5rem, 22vw, 7.5rem);
+            font-size: clamp(3.5rem, 12vw, 5rem); /* [DIUBAH] Mengurangi skala vw agar tidak terlalu besar di layar lebar */
         }
         /* [BARU] Styling untuk nama di dalam kartu */
-        .sweet-card .card-name {
+        #cover .sweet-card h1.card-name {
             /* [DIUBAH] Mengganti font menjadi 'Great Vibes' untuk gaya yang lebih artistik dan menyatu */
             font-family: var(--font-script);
             font-weight: normal; /* Script font lebih baik tanpa bold */
-            font-size: clamp(2.8rem, 12vw, 4rem); /* Ukuran disesuaikan agar lebih menonjol */
-            margin-top: -5px; /* Ditarik sedikit ke atas agar lebih dekat dengan angka 17 */
+            font-size: clamp(2rem, 7vw, 2.8rem); /* [DIUBAH] Mengurangi skala vw agar tidak terlalu besar di layar lebar */
+            margin-top: 0; margin-bottom: 5px; /* [DIUBAH] Mengurangi margin bawah agar lebih rapat */
             line-height: 1;
+            color: white; /* [DIUBAH] Mengubah warna nama menjadi putih */
             text-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Bayangan halus untuk kedalaman */
         }
         .sweet-card img { width: 100%; max-width: clamp(90px, 35vw, 180px); margin-top: 5px; } /* [DIUBAH] Ukuran gambar disesuaikan */
         /* [BARU] Styling untuk teks yang dipindahkan ke dalam kartu */
         .sweet-card .card-info {
-            margin-top: 20px;
+            margin-top: 10px; /* [DIUBAH] Mengurangi margin atas agar lebih rapat */
             animation: fadeInUp 1s ease-out 0.7s forwards;
             opacity: 0;
         }
         .sweet-card .card-info h4 { font-size: 1rem; font-weight: 500; letter-spacing: 1px; color: white; text-transform: uppercase; margin: 0; }
-        .sweet-card .card-info p { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 5px 0 15px 0; }
+        .sweet-card .card-info p { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 5px 0 10px 0; /* [DIUBAH] Margin bawah dikurangi */ }
         .sweet-card .card-info .recipient-box { margin-top: 10px; color: white; }
         .sweet-card .card-info .recipient-box p { font-size: 0.9rem; margin: 0; line-height: 1.5; }
-        .sweet-card .card-info #guest-name-dynamic { font-weight: 700; font-size: 1.1rem; display: block; margin-top: 2px; }
+        /* [BARU] Styling untuk border di sekitar nama tamu */
+        .guest-name-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 8px 15px;
+            margin-top: 10px;
+            display: inline-block; /* Agar border pas dengan konten */
+        }
+        .sweet-card .card-info #guest-name-dynamic { font-weight: 700; font-size: 1.1rem; display: block; }
         .slide {
             /* [BARU] Efek kilau pada kartu */
             .sweet-card::after {
@@ -167,7 +176,7 @@
 
         .cover-content {
             z-index: 2; padding: 20px;
-            padding-bottom: 18vh; 
+            padding-bottom: 10vh; /* [DIUBAH] Mengurangi padding bawah agar kartu turun */
             width: 100%; display: flex; flex-direction: column; align-items: center;
         }
 
@@ -424,9 +433,11 @@
             z-index: 2;
         }
         .digital-gift-back {
-            background: linear-gradient(135deg, #fdf6f8, #fbebf0);
+            background: linear-gradient(135deg, #fcecf0, #f8d7e2);
             transform: rotateY(180deg);
-            align-items: center;
+            /* [DIUBAH] Menyesuaikan layout agar strip magnetik terlihat */
+            padding: 0;
+            justify-content: flex-start;
         }
         .digital-gift-card .card-chip {
             width: 50px; height: 40px; border-radius: 5px;
@@ -476,7 +487,7 @@
             width: 100%; padding: 20px; text-align: right;
         }
         .digital-gift-back .magnetic-strip {
-            width: 100%; height: 50px; background: #d15c82; margin-top: 20px;
+            width: 100%; height: 50px; background: #2f2f2f; margin-top: 30px;
         }
         .copy-button-digital {
             background-color: var(--dark-pink); color: white; border: none;
@@ -828,7 +839,7 @@
             bottom: 0; left: 0;
             width: 100%; height: 50%;
             background: linear-gradient(to top, rgba(255, 255, 255, 0.65), transparent);
-        }
+        } 
         .event-content-wrapper {
             display: flex;
         }
@@ -996,21 +1007,21 @@
             <div class="sweet-card">
                 <div class="sweet-text">Sweet</div>
                 <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/17.webp?raw=true" alt="17">
-                <!-- [BARU] Nama di dalam kartu -->
-                <h1 class="card-name">Oktaviani</h1>
+                <!-- [DIUBAH] Nama dipindahkan ke kartu sampul -->
+                <h1 class="card-name">Nurlia Bintang Oktavianti</h1>
                 <!-- [BARU] Wrapper untuk info tambahan di dalam kartu -->
                 <div class="card-info">
                     <h4>UNDANGAN ULANG TAHUN</h4>
                     <p>Sabtu, 4 Oktober 2025</p>
                     <!-- [DIPINDAHKAN] Kotak nama tamu statis (tidak terpakai) -->
-                    <div class="recipient-box" id="recipient-box">
-                        <p>Anda diundang dengan hormat ke acara</p>
-                        <strong id="guest-name-static"></strong>
-                    </div>
-                    <!-- [DIPINDAHKAN] Kotak nama tamu dinamis -->
-                    <div class="recipient-box" id="dynamic-recipient-box" style="display: none;">
-                        <p>Kepada Yth:</p>
-                        <strong id="guest-name-dynamic"></strong>
+                    <!-- [PERUBAHAN] Kotak nama tamu digabung agar lebih rapi -->
+                    <div class="recipient-box">
+                        <div class="guest-name-wrapper">
+                            <!-- [DIUBAH] "Kepada Yth." dan "Bapak/Ibu/Saudara/i" dipisah menjadi dua baris -->
+                            <p style="margin-bottom: 0; line-height: 1.2;">Kepada Yth.</p>
+                            <p style="margin-top: 0; line-height: 1.2;">Bapak/Ibu/Saudara/i</p>
+                            <strong id="guest-name-dynamic" style="margin-top: 5px;">Tamu Undangan</strong>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1039,10 +1050,9 @@
             <audio id="background-music" loop src="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/lalalele.mp3"></audio>
 
             <!-- Hero & Countdown Section -->
-            <section class="hero">
-                <h1 class="script-text animated fade-in-up">Sweet Seventeen</h1>
-                <!-- EDIT BIRTHDAY PERSON'S NAME -->
-                <h2 class="guest-name-main animated fade-in-up delay-1">Nurlia Bintang Oktavianti</h2>
+            <section class="hero">     
+                <h1 class="script-text animated fade-in-up">Menuju Acara</h1>
+                <!-- [DIHAPUS] Nama dipindahkan ke kartu sampul -->
                 <div id="countdown" class="countdown animated zoom-in delay-2">
                     <div><span id="days">0</span><p>Hari</p></div>
                     <div><span id="hours">0</span><p>Jam</p></div>
@@ -1304,18 +1314,17 @@
             const getGuestName = () => {
                 const urlParams = new URLSearchParams(window.location.search);
                 const guest = urlParams.get('to');
-                const staticRecipientBox = document.getElementById('recipient-box'); // Ini tidak digunakan lagi, tapi kita biarkan untuk jaga-jaga
-                const dynamicRecipientBox = document.getElementById('dynamic-recipient-box');
+                const guestNameWrapper = document.querySelector('.guest-name-wrapper');
+                const guestNameElement = document.getElementById('guest-name-dynamic');
                 const guestName = guest ? guest.replace(/[+]/g, ' ') : null; // [DIUBAH] Jadi null jika tidak ada nama
-
+ 
                 // Set nama di halaman kado dan halaman sampul
                 preCoverGuestName.textContent = guestName || 'Bapak/Ibu/Saudara/i';
+ 
+                // [DIUBAH] Selalu tampilkan nama, baik dari URL atau default
+                guestNameElement.textContent = guestName || 'Tamu Undangan';
+                // [DIHAPUS] Tidak perlu mengubah display karena sudah diatur di HTML
 
-                if (guestName) {
-                    dynamicRecipientBox.querySelector('#guest-name-dynamic').textContent = guestName;
-                    document.getElementById('guest-name-static').parentElement.style.display = 'none'; // Sembunyikan sapaan statis
-                    dynamicRecipientBox.style.display = 'block'; // Tampilkan sapaan dinamis dengan nama
-                }
             };
             // Panggil fungsi saat halaman dimuat
             getGuestName();
