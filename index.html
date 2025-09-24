@@ -219,7 +219,7 @@
 
         /* Main Invitation Content */
         #invitation-content {
-            max-width: 800px; margin: -10vh auto 0 auto; /* [DIUBAH] Tarik ke atas agar menyatu dengan cover */
+            max-width: 900px; margin: -10vh auto 0 auto; /* [DIUBAH] Tarik ke atas agar menyatu dengan cover */
             padding-bottom: calc(50px + env(safe-area-inset-bottom)); /* Memberi ruang di bawah untuk safe area + padding tambahan */
         }
         .main-background {
@@ -797,6 +797,9 @@
 <style>
         /* [BARU] Desain Kartu Acara dengan Gradasi DAN Bilah Vertikal */
         .event-card-new {
+            /* [DITAMBAHKAN] Menyesuaikan ukuran kartu agar sama dengan kartu hadiah dan agar responsif */
+            max-width: 650px;
+            margin: 0 auto;
             border-radius: 20px;
             overflow: hidden;
             text-align: left;
@@ -1027,9 +1030,9 @@
        ================================= -->
     <div class="main-background">
         <!-- [BARU] Efek Salju Turun -->
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
+        <!-- Hapus efek salju -->
+
+
         <div id="invitation-content" style="display: none;">
             
             <!-- Music Player & Control Button -->
@@ -1057,7 +1060,7 @@
                     <span class="animated fade-in-up d-block" style="--delay: 0.4s;">pada perayaan ulang tahun saya yang ke-17:</span>
                 </p>
             </section>
-            <section class="event-details" style="background: none; box-shadow: none; padding-top: 0; margin-top: 0;">
+            <section class="event-details" style="background: none; box-shadow: none; padding: 0 5px;">
                 <!-- [DIUBAH] Menggunakan desain kartu baru -->
                 <div class="event-card-new animated zoom-in">
                     <div class="event-card-image-wrapper">
@@ -1542,8 +1545,8 @@
             // --- FUNCTION FOR FLIPPABLE GIFT CARDS ---
             const bankGiftContainer = document.getElementById('bank-gift-container');
             if (bankGiftContainer) {
-                bankGiftContainer.addEventListener('click', function() {
-                    this.classList.toggle('flipped');
+                bankGiftContainer.addEventListener('click', function(e) {
+                    this.classList.toggle('flipped'); e.stopPropagation()
                 });
             }
 
