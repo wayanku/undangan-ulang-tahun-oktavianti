@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,7 @@
     <!-- Loading Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Great+Vibes&family=Parisienne&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Loading Icons from Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -56,7 +57,7 @@
         body {
             font-family: var(--font-body);
             background-color: var(--bg-light);
-            background: linear-gradient(175deg, var(--bg-light) 0%, var(--bg-off-white) 100%);
+            background-color: var(--bg-off-white);
             color: var(--text-dark);
             overflow-x: hidden;
             overflow-y: hidden; /* Hide scrollbar while cover is active */
@@ -85,30 +86,41 @@
         }
         /* [BARU] Styling untuk kartu Sweet 17 di cover */
         .sweet-card {
+            /* [DIUBAH] Menggunakan gradien dan menambahkan posisi relatif untuk efek kilau */
             background-color: var(--pink);
+            position: relative;
+            overflow: hidden; /* Penting untuk efek kilau */
             border-radius: 30px;
             padding: 7vh 25px; /* [DIUBAH] Padding atas/bawah diperbesar agar kartu lebih tinggi */
             color: white;
             margin-bottom: 2vh; /* [DIUBAH] Margin bawah dikurangi lagi agar kartu turun lebih ke bawah */
-            animation: fadeInUp 1s ease-out 0.3s forwards; /* Animasi muncul */
+            /* [DIUBAH] Mengganti animasi masuk dan menambahkan animasi mengambang */
+            animation: card-enter 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards,
+                       float 4s ease-in-out 1.5s infinite;
             opacity: 0;
-            box-shadow: 0 5px 20px rgba(243, 176, 195, 0.5);
+            /* [DIUBAH] Menggunakan filter drop-shadow untuk bayangan yang lebih baik */
+            filter: drop-shadow(0 10px 25px rgba(209, 92, 130, 0.35));
             width: 85vw; /* [DIUBAH] Lebar disesuaikan */
             max-width: 450px;
             display: flex; /* [BARU] Menggunakan flexbox untuk tata letak */
             flex-direction: column; /* [BARU] Konten ditumpuk ke bawah */
             align-items: center; /* [BARU] Konten di tengah */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* [BARU] Menambahkan border tipis untuk efek kaca */
         }
         .sweet-card .sweet-text {
-            font-family: var(--font-script);
-            font-size: clamp(3.5rem, 18vw, 6rem); /* [DIUBAH] Ukuran teks disesuaikan */
+            /* [DIUBAH] Mengganti font menjadi 'Parisienne' dan menyesuaikan ukuran */
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(4.5rem, 22vw, 7.5rem);
         }
         /* [BARU] Styling untuk nama di dalam kartu */
         .sweet-card .card-name {
+            /* [DIUBAH] Mengganti font menjadi 'Great Vibes' untuk gaya yang lebih artistik dan menyatu */
             font-family: var(--font-script);
-            font-size: clamp(2.5rem, 10vw, 3.5rem);
-            margin-top: 10px;
+            font-weight: normal; /* Script font lebih baik tanpa bold */
+            font-size: clamp(2.8rem, 12vw, 4rem); /* Ukuran disesuaikan agar lebih menonjol */
+            margin-top: -5px; /* Ditarik sedikit ke atas agar lebih dekat dengan angka 17 */
             line-height: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Bayangan halus untuk kedalaman */
         }
         .sweet-card img { width: 100%; max-width: clamp(90px, 35vw, 180px); margin-top: 5px; } /* [DIUBAH] Ukuran gambar disesuaikan */
         /* [BARU] Styling untuk teks yang dipindahkan ke dalam kartu */
@@ -123,6 +135,27 @@
         .sweet-card .card-info .recipient-box p { font-size: 0.9rem; margin: 0; line-height: 1.5; }
         .sweet-card .card-info #guest-name-dynamic { font-weight: 700; font-size: 1.1rem; display: block; margin-top: 2px; }
         .slide {
+            /* [BARU] Efek kilau pada kartu */
+            .sweet-card::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -60%;
+                width: 20%;
+                height: 200%;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+                transform: rotate(25deg);
+                animation: card-shine 2.5s ease-in-out 0.8s 1; /* Muncul setelah kartu masuk */
+            }
+            @keyframes card-shine {
+                100% {
+                    left: 140%;
+                }
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
             position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center 30%; /* [DIUBAH] Menghapus animasi */
             opacity: 0; /* [DIUBAH] Awalnya transparan */
         }
@@ -191,7 +224,7 @@
         }
         .main-background {
             min-height: 100vh; /* Memastikan background setidaknya setinggi layar */
-            background-image: url('https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/Desain%20tanpa%20judul%20(2)%20(2).webp');
+            background-image: url('https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20isi.webp?raw=true');
             background-size: cover; background-position: top center; background-attachment: fixed;
         }
 
@@ -233,7 +266,12 @@
 
 
         /* [BARU] Animasi dari referensi */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* [DIUBAH] Animasi masuk kartu yang lebih kompleks */
+        @keyframes card-enter {
+            from { opacity: 0; transform: translateY(50px) rotateX(-20deg) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } } /* Tetap ada untuk elemen lain */
         @keyframes fade-in-out {
             0% { opacity: 0; transform: scale(1.05); } 15% { opacity: 1; transform: scale(1); } 33% { opacity: 1; transform: scale(1); } 48% { opacity: 0; transform: scale(1); } 100% { opacity: 0; }
         }
@@ -704,7 +742,7 @@
                 radial-gradient(3px 3px at 90% 60%, white, transparent);
             background-size: 600px 600px;
             animation: snow 10s linear infinite;
-            z-index: -1; /* [DIUBAH] Pastikan salju di lapisan paling belakang */
+            z-index: 1; /* [DIUBAH] Pastikan salju di lapisan paling belakang */
         }
         .snow:nth-of-type(2) { background-size: 400px 400px; animation-duration: 15s; animation-delay: 2s; filter: blur(1px); }
         .snow:nth-of-type(3) { background-size: 300px 300px; animation-duration: 20s; animation-delay: 5s; filter: blur(2px); }
@@ -756,6 +794,76 @@
         .nav-item i { font-size: 1.4rem; margin-bottom: 4px; }
     </style>
 </head>
+<style>
+        /* [BARU] Desain Kartu Acara dengan Gradasi DAN Bilah Vertikal */
+        .event-card-new {
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: left;
+            /* [DIUBAH] Menerapkan efek Liquid Glass */
+            background: rgba(255, 255, 255, 0.65); /* Warna dasar kaca */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+        }
+        .event-card-image-wrapper {
+            position: relative;
+        }
+        .event-card-image-wrapper img {
+            /* [DIUBAH] Mengganti tinggi tetap dengan aspect-ratio agar responsif */
+            width: 100%;
+            aspect-ratio: 4 / 3; /* [DIUBAH] Membuat gambar lebih tinggi (lebih panjang ke bawah) */
+            object-fit: cover; 
+            display: block;
+        }
+        /* Gradasi ditaruh di sini */
+        .event-card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 50%;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.65), transparent);
+        }
+        .event-content-wrapper {
+            display: flex;
+        }
+        .event-sidebar {
+            background-color: var(--dark-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 15px;
+            flex-shrink: 0;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            color: white;
+            font-family: var(--font-body), sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+        .event-details-main {
+            padding: 25px;
+            width: 100%;
+        }
+        .date-section { display: flex; align-items: center; gap: 15px; }
+        .date-number { font-family: var(--font-serif); font-weight: 700; font-size: 4rem; line-height: 1; color: var(--text-dark); } /* Angka tanggal di kartu */
+        .date-text { font-size: clamp(1rem, 3vw, 1.1rem); line-height: 1.5; } /* Hari, bulan, tahun di kartu */
+        .event-details-main hr { border: none; height: 1px; background-color: #ddd; margin: 20px 0; }
+        .event-details-main p { margin: 5px 0; font-size: 0.95rem; } /* Waktu dan lokasi di kartu */
+        .location-label { font-size: 0.85rem; color: #888; }
+        .map-button-outline { /* Tombol peta lokasi */
+            display: inline-block; background-color: transparent; color: var(--dark-pink);
+            border: 1px solid var(--dark-pink); padding: 10px 25px; border-radius: 50px;
+            text-decoration: none; margin-top: 20px; transition: background-color 0.3s, color 0.3s; font-weight: 600;
+        }
+        .map-button-outline:hover { background-color: var(--dark-pink); color: white; }
+    </style>
 <body style="overflow: hidden;">
 
     <!-- =================================
@@ -766,7 +874,7 @@
         <div id="gift-box" style="position: relative; width: 200px; height: 200px; cursor: pointer; perspective: 1000px;">
             <!-- [DIUBAH] Tutup Kado dengan Gradien dan Bayangan -->
             <div id="gift-lid" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 220px; height: 60px; background: linear-gradient(to bottom, #d15c82, #c14c72); border-radius: 10px; z-index: 2; transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); transform-origin: top center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></div>
-            <!-- [DIUBAH] Badan Kado dengan Gradien dan Bayangan Dalam -->
+            <!-- [DIUBAH] Badan Kado dengan warna solid dan Bayangan Dalam -->
             <div id="gift-box-base" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 140px; background: linear-gradient(to bottom, #f3b0c3, #e8a2b6); border-radius: 5px; box-shadow: inset 0 5px 15px rgba(0,0,0,0.1);"></div>
             <!-- [DIUBAH] Efek partikel/confetti dari dalam kado -->
             <div id="confetti-container" style="position: absolute; top: 60%; left: 50%; width: 1px; height: 1px; z-index: 1; transform: translate(-50%, -50%);">
@@ -949,39 +1057,39 @@
                     <span class="animated fade-in-up d-block" style="--delay: 0.4s;">pada perayaan ulang tahun saya yang ke-17:</span>
                 </p>
             </section>
-            <section class="event-details" style="padding-top: 40px; margin-top: 0;">
-                <div class="details-box-container">
-                    <div class="detail-box animated fade-in-left">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        <h3>Tanggal</h3>
-                        <!-- EDIT EVENT DATE -->
-                        <p>Sabtu, 4 Oktober 2025</p>
+            <section class="event-details" style="background: none; box-shadow: none; padding-top: 0; margin-top: 0;">
+                <!-- [DIUBAH] Menggunakan desain kartu baru -->
+                <div class="event-card-new animated zoom-in">
+                    <div class="event-card-image-wrapper">
+                        <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/Desain%20tanpa%20judul%20(4)%20(1).png?raw=true" alt="Acara Ulang Tahun">
                     </div>
-                    <div class="detail-box animated zoom-in">
-                        <i class="fa-solid fa-clock"></i>
-                        <h3>Waktu</h3>
-                        <!-- EDIT EVENT TIME -->
-                        <p>16:00 WITA - Selesai</p>
-                    </div>
-                    <div class="detail-box animated fade-in-right">
-                        <i class="fa-solid fa-tshirt"></i>
-                        <h3>Pakaian</h3>
-                        <!-- EDIT DRESSCODE -->
-                        <p>Hitam-Putih</p>
+                    <div class="event-content-wrapper">
+                        <div class="event-sidebar">
+                            <span class="vertical-text">ULANG TAHUN</span>
+                        </div>
+                        <div class="event-details-main">
+                            <div class="date-section">
+                                <span class="date-number">04</span>
+                                <div class="date-text">
+                                    <strong>Sabtu</strong><br>Oktober<br>2025
+                                </div>
+                            </div>
+                            <hr>
+                            <p><strong>16:00 WITA - Selesai</strong></p>
+                            <p class="location-label">Dresscode</p>
+                            <p><strong>Hitam-Putih</strong></p>
+                            <!-- [BARU] Menambahkan detail lokasi dan tombol peta -->
+                            <p class="location-label" style="margin-top: 20px;">Bertempat di</p>
+                            <p><strong>Musholla An-Nuur, Rendang, Kecamatan Rendang, Kabupaten Karangasem</strong></p>
+                            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.731733614912!2d115.4022206748281!3d-8.525623091566874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21104a1b12b12b%3A0x8673a68198b824e9!2sJl.%20Werkudara%2C%2C%20Semarapura%20Klod%20Kangin%2C%20Kec.%20Klungkung%2C%20Kabupaten%20Klungkung%2C%20Bali!5e0!3m2!1sen!2sid!4v1694086581457!5m2!1sen!2sid" target="_blank" class="map-button-outline">Lihat Peta Lokasi</a>
+                        </div>
                     </div>
                 </div>
             </section>
     
             <!-- Venue / Location Section -->
-            <section class="venue">
-                <h2 class="section-title animated fade-in-up">Lokasi Acara</h2>
-                 <!-- EDIT FULL ADDRESS -->
-                <p class="animated fade-in-up section-subtitle" style="margin-bottom: 0;">Musholla An-Nuur, Rendang, Kecamatan Rendang, Kabupaten Karangasem</p>
-                <div class="map-container animated zoom-in">
-                    <!-- IMPORTANT: REPLACE THE MAP CODE FROM GOOGLE MAPS -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.731733614912!2d115.4022206748281!3d-8.525623091566874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21104a1b12b12b%3A0x8673a68198b824e9!2sJl.%20Werkudara%2C%2C%20Semarapura%20Klod%20Kangin%2C%20Kec.%20Klungkung%2C%20Kabupaten%20Klungkung%2C%20Bali!5e0!3m2!1sen!2sid!4v1694086581457!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </section>
+            <!-- [DIHAPUS] Section ini tidak diperlukan lagi karena sudah digabung ke dalam kartu acara -->
+            <section class="venue" style="display: none;"></section>
 
             <!-- Love Gift Section -->
             <section id="gift">
