@@ -112,28 +112,28 @@
         .sweet-card .sweet-text {
             /* [DIUBAH] Mengganti font menjadi 'Parisienne' dan menyesuaikan ukuran */
             font-family: 'Parisienne', cursive;
-            font-size: clamp(3.5rem, 12vw, 5rem); /* [DIUBAH] Mengurangi skala vw agar tidak terlalu besar di layar lebar */
+            font-size: clamp(3.2rem, 11vw, 4.5rem); /* [DIUBAH] Sedikit mengecilkan font agar lebih seimbang */
         }
         /* [BARU] Styling untuk nama di dalam kartu */
         #cover .sweet-card h1.card-name {
             /* [DIUBAH] Mengganti font menjadi 'Great Vibes' untuk gaya yang lebih artistik dan menyatu */
             font-family: var(--font-script);
             font-weight: normal; /* Script font lebih baik tanpa bold */
-            font-size: clamp(2rem, 7vw, 2.8rem); /* [DIUBAH] Mengurangi skala vw agar tidak terlalu besar di layar lebar */
-            margin-top: 0; margin-bottom: 5px; /* [DIUBAH] Mengurangi margin bawah agar lebih rapat */
+            font-size: clamp(2rem, 7vw, 2.8rem);
+            margin-top: 20px; margin-bottom: 15px; /* [DIUBAH] Menambah jarak atas agar tidak mepet dengan angka 17 */
             line-height: 1;
             color: white; /* [DIUBAH] Mengubah warna nama menjadi putih */
             text-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Bayangan halus untuk kedalaman */
         }
-        .sweet-card img { width: 100%; max-width: clamp(90px, 35vw, 180px); margin-top: 5px; } /* [DIUBAH] Ukuran gambar disesuaikan */
+        .sweet-card img { width: 100%; max-width: clamp(90px, 35vw, 160px); margin-top: 10px; } /* [DIUBAH] Menambah margin atas agar simetris */
         /* [BARU] Styling untuk teks yang dipindahkan ke dalam kartu */
         .sweet-card .card-info {
-            margin-top: 10px; /* [DIUBAH] Mengurangi margin atas agar lebih rapat */
+            margin-top: 0; /* [DIUBAH] Menghapus margin atas agar lebih rapat dengan nama */
             animation: fadeInUp 1s ease-out 0.7s forwards;
             opacity: 0;
         }
-        .sweet-card .card-info h4 { font-size: 1rem; font-weight: 500; letter-spacing: 1px; color: white; text-transform: uppercase; margin: 0; }
-        .sweet-card .card-info p { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 5px 0 10px 0; /* [DIUBAH] Margin bawah dikurangi */ }
+        .sweet-card .card-info h4 { font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; color: white; text-transform: uppercase; margin: 0; } /* [DIUBAH] Ukuran font dan letter-spacing disesuaikan */
+        .sweet-card .card-info p { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 2px 0 10px 0; /* [DIUBAH] Margin atas dikurangi */ }
         .sweet-card .card-info .recipient-box { margin-top: 10px; color: white; }
         .sweet-card .card-info .recipient-box p { font-size: 0.9rem; margin: 0; line-height: 1.5; }
         /* [BARU] Styling untuk border di sekitar nama tamu */
@@ -227,7 +227,7 @@
             max-width: 900px; margin: 5vh auto 0 auto; /* [DIUBAH] Menambahkan margin atas untuk menurunkan kartu */
             padding-bottom: calc(50px + env(safe-area-inset-bottom)); /* Memberi ruang di bawah untuk safe area + padding tambahan */
         }
-        .main-background { min-height: 100vh; /* Memastikan background setidaknya setinggi layar */ background-image: url('https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20isi.webp?raw=true'); background-size: cover; background-position: top center; background-attachment: fixed; }
+        .main-background { min-height: 100vh; /* Memastikan background setidaknya setinggi layar */ background-image: url('https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20isi.webp?raw=true'); background-size: cover; background-position: top center; } /* [DIUBAH] Menghapus background-attachment: fixed agar tidak zoom di HP */
 
         section { padding: 70px 40px; text-align: center; position: relative; margin: 25px; background: var(--bg-light);
             border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
