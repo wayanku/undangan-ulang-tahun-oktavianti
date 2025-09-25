@@ -14,13 +14,13 @@
     <!-- === META TAGS FOR SOCIAL MEDIA SHARING (WhatsApp, Facebook, etc.) === -->
     <meta property="og:title" content="Undangan Ulang Tahun: Sweet Seventeen Nurlia Bintang Oktavianti">
     <meta property="og:description" content="Hadirilah perayaan hari spesial Nurlia Bintang Oktavianti pada hari Sabtu, 4 Oktober 2025 pukul 16:00 WITA di Karangasem, Bali.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/Desain%20tanpa%20judul%20(2)%20(2).webp">
+    <meta property="og:image" content="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/Desain%20tanpa%20judul%20(4)%20(1).png?raw=true">
     <!-- GANTI URL DI BAWAH INI DENGAN LINK LIVE UNDANGAN ANDA (SUDAH SESUAI) -->
     <meta property="og:url" content="https://wayanku.github.io/birth-day-invitation-gusti-ayu-/">
     <meta property="og:type" content="website">
     
     <!-- [BARU] Menambahkan Favicon untuk ikon di tab browser -->
-    <link rel="icon" href="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/foto%20sweet.webp" type="image/webp">
+    <link rel="icon" href="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/Desain%20tanpa%20judul%20(4)%20(1).png?raw=true" type="image/png">
 
     <!-- Loading Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1173,29 +1173,26 @@
             </section>
 
             <!-- Guest Book / RSVP Section -->
-            <section id="rsvp">
-                <h2 class="section-title animated fade-in-up">Buku Tamu</h2>
-                <p class="section-subtitle animated fade-in-up">Kehadiran Anda adalah hadiah terindah, namun beberapa kata dari Anda akan membuat hari kami lebih istimewa. Mohon konfirmasi kehadiran Anda dan tinggalkan ucapan hangat di bawah ini.</p>
+            <section id="rsvp" class="section">
+                <h2 class="section-title hidden anim-fade-in-up">Konfirmasi Kehadiran</h2>
+                <p class="section-subtitle hidden anim-fade-in-up" style="--delay: 0.1s;">Kehadiran Anda adalah hadiah terindah, namun beberapa kata dari Anda akan membuat hari kami lebih istimewa. Mohon konfirmasi kehadiran Anda dan tinggalkan ucapan hangat di bawah ini.</p>
                 
-                <!-- [PERUBAHAN] Container digabung untuk RSVP dan Ucapan -->
-                <div class="rsvp-wishes-container animated zoom-in">
-                    <form id="rsvp-form" class="rsvp-form" autocomplete="off">
+                <div class="rsvp-wishes-container hidden anim-fade-in-up" style="--delay: 0.2s;">
+                    <form id="rsvp-form" class="rsvp-form">
                         <div class="form-group">
                             <label for="nama">Nama Anda</label>
-                            <input type="text" id="nama" name="nama" placeholder="Silakan tulis nama Anda" required>
+                            <input type="text" id="nama" name="nama" placeholder="Tuliskan nama Anda" required>
                         </div>
                         <div class="form-group">
                             <fieldset style="border: none; padding: 0; margin: 0;">
                                 <legend>Konfirmasi Kehadiran</legend>
                                 <div class="kehadiran-options">
-                                    <input type="radio" id="attending-yes" name="kehadiran" value="Hadir" required>
-                                    <label for="attending-yes">Hadir</label>
-                                    <input type="radio" id="attending-no" name="kehadiran" value="Tidak Hadir">
-                                    <label for="attending-no">Tidak Hadir</label>
+                                    <input type="radio" id="hadir" name="kehadiran" value="Hadir" required><label for="hadir">Hadir</label>
+                                    <input type="radio" id="tidak-hadir" name="kehadiran" value="Tidak Hadir"><label for="tidak-hadir">Tidak Hadir</label>
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="form-group" id="guests-group" style="display: none;">
+                        <div class="form-group" id="jumlah-tamu-group" style="display: none;">
                             <label for="jumlah">Jumlah Tamu (termasuk Anda)</label>
                             <select id="jumlah" name="jumlah">
                                 <option value="1">1 Orang</option>
@@ -1204,23 +1201,22 @@
                         </div>
                         <div class="form-group">
                             <label for="ucapan">Ucapan & Doa</label>
-                            <textarea id="ucapan" name="ucapan" placeholder="Tulis ucapan terbaik Anda di sini..." required></textarea>
+                            <textarea id="ucapan" name="ucapan" placeholder="Tuliskan ucapan dan doa Anda..." required></textarea>
                         </div>
                         <button type="submit" class="rsvp-button">
                             Kirim Konfirmasi
                         </button>
-                        <p id="form-response" style="text-align: center; margin-top: 15px; height: 20px;"></p>
+                        <p id="form-status" style="text-align: center; margin-top: 15px;"></p>
                     </form>
-
                 </div>
-                <div id="wishes-gallery-container" style="display: none;">
-                    <h3 class="wishes-title">Ucapan & Doa</h3>
+                <div id="wishes-gallery-container" style="margin-top: 2rem; display: none;">
+                    <h2 class="wishes-title hidden anim-fade-in-up">Ucapan & Doa</h2>
                     <div id="wishes-gallery" class="wishes-gallery"></div>
-                    <p id="no-wishes-message" style="display: none; text-align: center; color: #888; margin-top: 20px;">Jadilah yang pertama mengirim ucapan!</p>
+                    <!-- [PERUBAHAN BARU] Kontrol Paginasi -->
                     <div id="wishes-pagination" class="wishes-pagination" style="display: none;">
+                        <!-- Konten diisi oleh JavaScript -->
                     </div>
                 </div>
-
             </section>
 
             <!-- Closing Section -->
@@ -1311,10 +1307,10 @@
             const musicToggle = document.getElementById('nav-music-toggle'); // [DIUBAH] Target tombol musik baru
             const bottomNav = document.getElementById('bottom-nav'); // [BARU]
 
-            // [BARU] Variabel global untuk paginasi ucapan
+            // [DIUBAH] Variabel global untuk paginasi ucapan
             let allWishes = [];
             let currentPage = 1;
-            const wishesPerPage = 3; // Menampilkan 3 ucapan per halaman
+            const wishesPerPage = 5;
 
             // --- [BARU] LOGIC FOR PRE-COVER ---
             const handleOpenGift = () => {
@@ -1470,10 +1466,10 @@
 
             // --- FUNCTION FOR RSVP FORM ---
             const rsvpForm = document.getElementById('rsvp-form');
-            const formResponse = document.getElementById('form-response');
+            const formStatus = document.getElementById('form-status');
             const attendanceOptions = document.querySelectorAll('input[name="kehadiran"]');
-            const guestsGroup = document.getElementById('guests-group'); 
-
+            const guestsGroup = document.getElementById('jumlah-tamu-group');
+ 
             attendanceOptions.forEach(option => {
                 option.addEventListener('change', function() {
                     if (this.value === 'Hadir') {
@@ -1483,11 +1479,14 @@
                     }
                 });
             });
-
+ 
             if (rsvpForm) {
                 rsvpForm.addEventListener('submit', (e) => {
                     e.preventDefault(); 
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzT-4MQcqBIK-cKwBbwpuFQFM-Ooe_gm_k5VblFNImhL6w8OiIMgwcFOiFaVvctWE764w/exec'; // Ganti dengan URL Anda
+                    
+                    // [BARU] Validasi manual untuk kehadiran
+                    const kehadiranValue = rsvpForm.querySelector('input[name="kehadiran"]:checked');
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzp03fkkyZQqU5wwSImjHqS7L-xNWY4Zb47c1Ks0BUMyVyC8P4DVPfB7PUuYeKqX7O8Ng/exec';
                     const submitButton = rsvpForm.querySelector('.rsvp-button'); 
                     
                     submitButton.disabled = true;
@@ -1497,19 +1496,18 @@
                     fetch(scriptURL, { method: 'POST', body: new FormData(rsvpForm)})
                         .then(response => response.json())
                         .then(data => {
-                            formResponse.textContent = 'Terima kasih! Konfirmasi Anda telah terkirim.';
-                            formResponse.style.color = 'var(--dark-pink)';
+                            formStatus.textContent = 'Terima kasih, konfirmasi Anda terkirim!';
+                            formStatus.style.color = 'var(--dark-pink)';
                             rsvpForm.reset();
+                            guestsGroup.style.display = 'none';
 
                             // Panggil loadWishes() lagi untuk memuat ulang galeri secara dinamis
                             loadWishes();
                         })
-                        .catch(error => { // Perbaikan: Menampilkan error yang lebih spesifik
-                            formResponse.textContent = 'Error! Gagal mengirim konfirmasi.';
-                            formResponse.style.color = 'red';
-                            // Menampilkan pesan error dari server jika ada, atau error umum
-                            const errorMessage = error.message || 'Silakan periksa koneksi internet Anda atau coba lagi nanti.';
-                            console.error('Error submitting form!', errorMessage);
+                        .catch(error => {
+                            formStatus.textContent = 'Gagal mengirim. Coba lagi.';
+                            formStatus.style.color = 'red';
+                            console.error('Error!', error.message);
                         }).finally(() => {
                             submitButton.disabled = false;
                             submitButton.textContent = 'Kirim Konfirmasi';
@@ -1517,24 +1515,23 @@
                         });
                 });
             }
-
+ 
             // --- FUNCTION TO LOAD AND DISPLAY WISHES ---
-            // [DIUBAH] Fungsi untuk merender ucapan berdasarkan halaman
+            // [DIUBAH] Logika baru untuk render dan paginasi ucapan
             const renderWishes = (page) => {
                 const wishesGallery = document.getElementById('wishes-gallery');
                 const paginationContainer = document.getElementById('wishes-pagination');
-                const noWishesMessage = document.getElementById('no-wishes-message');
+                const galleryContainer = document.getElementById('wishes-gallery-container');
                 
                 currentPage = page;
                 wishesGallery.innerHTML = '';
 
                 if (allWishes.length === 0) {
-                    noWishesMessage.style.display = 'block';
+                    galleryContainer.innerHTML += '<p style="text-align: center;">Jadilah yang pertama mengirim ucapan!</p>';
                     paginationContainer.style.display = 'none';
                     return;
                 }
 
-                noWishesMessage.style.display = 'none';
                 const startIndex = (page - 1) * wishesPerPage;
                 const endIndex = startIndex + wishesPerPage;
                 const paginatedWishes = allWishes.slice(startIndex, endIndex);
@@ -1542,9 +1539,9 @@
                 paginatedWishes.forEach(wish => {
                     const card = document.createElement('div');
                     card.className = 'wish-card';
-                    card.innerHTML = `
+                    card.innerHTML = ` 
                         <span class="sender-name">${wish.nama || 'Tamu'}</span>
-                        <p class="message-text">${wish.ucapan || ''}</p>
+                        <p>${wish.ucapan || ''}</p>
                     `;
                     wishesGallery.appendChild(card);
                 });
@@ -1561,20 +1558,22 @@
                 document.getElementById('next-wish-page')?.addEventListener('click', () => renderWishes(currentPage + 1));
             }
 
-            const loadWishes = () => {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzT-4MQcqBIK-cKwBbwpuFQFM-Ooe_gm_k5VblFNImhL6w8OiIMgwcFOiFaVvctWE764w/exec';
+            const loadWishes = async () => {
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzp03fkkyZQqU5wwSImjHqS7L-xNWY4Zb47c1Ks0BUMyVyC8P4DVPfB7PUuYeKqX7O8Ng/exec';
                 const galleryContainer = document.getElementById('wishes-gallery-container');
-
-                fetch(scriptURL)
-                    .then(response => response.json())
-                    .then(result => {
-                        galleryContainer.style.display = 'block';
-                        allWishes = result.result === 'success' ? result.data.filter(w => w.ucapan).reverse() : [];
-                        renderWishes(1); // Tampilkan halaman pertama
-                    })
-                    .catch(error => {
-                        console.error('Error fetching wishes!', error);
-                    });
+                if (!galleryContainer) return;
+                
+                try {
+                    const response = await fetch(scriptURL);
+                    const result = await response.json();
+                    
+                    galleryContainer.style.display = 'block';
+                    allWishes = result.result === 'success' && result.data.length > 0 ? result.data.filter(w => w.ucapan).reverse() : [];
+                    renderWishes(1);
+                } catch (error) {
+                    console.error('Error fetching wishes!', error.message);
+                    galleryContainer.style.display = 'none';
+                }
             };
 
             // --- FUNCTION FOR COPY TO CLIPBOARD ---
