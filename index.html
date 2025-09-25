@@ -1295,15 +1295,15 @@
                 date: "04 Oktober 2025",
                 time: "16:00 WITA - Selesai",
                 location: "Musholla An-Nuur, Rendang, Kecamatan Rendang, Kabupaten Karangasem",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.731733614912!2d115.4022206748281!3d-8.525623091566874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21104a1b12b12b%3A0x8673a68198b824e9!2sJl.%20Werkudara%2C%2C%20Semarapura%20Klod%20Kangin%2C%20Kec.%20Klungkung%2C%20Kabupaten%20Klungkung%2C%20Bali!5e0!3m2!1sen!2sid!4v1694086581457!5m2!1sen!2sid",
+                mapUrl: "https://maps.app.goo.gl/Wim4hZFaLTsQbKFx7?g_st=ipc",
                 dresscode: "Hitam-Putih",
                 countdownTime: "2025-10-04T16:00:00"
             },
             gift: {
-                bankName: "DANA",
-                accountHolder: "Nurlia Bintang Oktavianti",
-                accountNumber: "081234567890",
-                bankLogoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/2560px-Logo_dana_blue.svg.png"
+                bankName: "BRI",
+                accountHolder: "Feriska Fatiha",
+                accountNumber: "461001021174536",
+                bankLogoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/2560px-BRI_2020.svg.png"
             },
             images: {
                 favicon: "https://cdn.jsdelivr.net/gh/wayanku/undangan-ulang-tahun-oktavianti@main/Desain%20tanpa%20judul%20(3)%20(1).png",
@@ -1350,16 +1350,16 @@
             document.querySelector('.sweet-card img').src = data.images.seventeenIcon;
             document.querySelector('.cover-balloons').src = data.images.balloonsLeft;
             document.querySelector('.cover-balloons-right').src = data.images.balloonsRight;
-
+            
             // Konten Utama
             document.querySelector('.main-background').style.backgroundImage = `url('${data.images.mainBackground}')`;
             document.getElementById('background-music').src = data.music;
             document.querySelector('.event-card-image-wrapper img').src = data.images.eventCardImage;
             document.querySelector('.date-section .date-number').textContent = data.event.date.split(' ')[0];
             document.querySelector('.date-section .date-text').innerHTML = `<strong>${data.event.day}</strong><br>${data.event.date.split(' ')[1]}<br>${data.event.date.split(' ')[2]}`;
-            document.querySelector('.event-details-main p:nth-of-type(1)').innerHTML = `<strong>${data.event.time}</strong>`;
-            document.querySelector('.event-details-main p:nth-of-type(2)').textContent = data.event.dresscode;
-            document.querySelector('.event-details-main p:nth-of-type(4)').textContent = data.event.location;
+            document.querySelector('.event-details-main').innerHTML = `
+                <div class="date-section"><span class="date-number">${data.event.date.split(' ')[0]}</span><div class="date-text"><strong>${data.event.day}</strong><br>${data.event.date.split(' ')[1]}<br>${data.event.date.split(' ')[2]}</div></div><hr><p><strong>${data.event.time}</strong></p><p class="location-label">Dresscode</p><p><strong>${data.event.dresscode}</strong></p><p class="location-label" style="margin-top: 20px;">Bertempat di</p><p><strong>${data.event.location}</strong></p><a href="${data.event.mapUrl}" target="_blank" class="map-button-outline">Lihat Peta Lokasi</a>
+            `;
             document.querySelector('.map-button-outline').href = data.event.mapUrl;
 
             // Hadiah
@@ -1659,7 +1659,10 @@
                     const result = await response.json();
                     
                     galleryContainer.style.display = 'block';
-                    allWishes = result.result === 'success' && result.data.length > 0 ? result.data.filter(w => w.ucapan).reverse() : [];
+                    // [DIUBAH] Mengurutkan berdasarkan timestamp, bukan membalik array
+                    allWishes = result.result === 'success' && result.data.length > 0 
+                        ? result.data.filter(w => w.ucapan).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)) 
+                        : [];
                     renderWishes(1);
                 } catch (error) {
                     console.error('Error fetching wishes!', error.message);
