@@ -178,10 +178,9 @@
         /* [BARU] Styling untuk balon di pojok cover */
         .cover-balloons {
             position: absolute;
-            bottom: calc(0px + env(safe-area-inset-bottom)); /* [DIUBAH] Menyesuaikan dengan safe area */
-            bottom: 0; /* [DIUBAH] Kembali ke 0, akan diatur pada parent */
+            bottom: 0; /* [DIUBAH] Mengembalikan posisi balon ke dasar halaman */
             left: 0; /* [DIUBAH] Pindah ke pojok kiri */
-            width: clamp(250px, 50vw, 450px); /* [DIUBAH] Ukuran diperbesar lagi */
+            width: clamp(300px, 55vw, 500px); /* [DIUBAH] Ukuran diperbesar */
             z-index: 1;
             opacity: 0;
             animation: fadeInUp 1.2s ease-out 1s forwards;
@@ -190,10 +189,9 @@
         /* [BARU] Styling untuk balon di pojok kanan */
         .cover-balloons-right {
             position: absolute;
-            bottom: calc(0px + env(safe-area-inset-bottom)); /* [DIUBAH] Menyesuaikan dengan safe area */
-            bottom: 0; /* [DIUBAH] Kembali ke 0, akan diatur pada parent */
+            bottom: 0; /* [DIUBAH] Mengembalikan posisi balon ke dasar halaman */
             right: 0;
-            width: clamp(250px, 50vw, 450px); /* [DIUBAH] Ukuran diperbesar lagi */
+            width: clamp(300px, 55vw, 500px); /* [DIUBAH] Ukuran diperbesar */
             z-index: 1;
             opacity: 0;
             animation: fadeInUp 1.2s ease-out 1.2s forwards; /* Sedikit delay agar muncul setelah balon kiri */
