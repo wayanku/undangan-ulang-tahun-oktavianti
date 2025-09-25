@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -883,7 +884,14 @@
     <!-- =================================
        [BARU] PRE-COVER / GIFT PAGE SECTION
        ================================= -->
-    <div id="pre-cover" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: linear-gradient(175deg, var(--bg-light) 0%, var(--bg-off-white) 100%); z-index: 200; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 1s ease-out, visibility 1s;">
+    <div id="pre-cover" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-image: url('https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20(1).png?raw=true'); background-size: cover; background-position: top center; z-index: 200; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: opacity 1s ease-out, visibility 1s;">
+        <!-- [BARU] Ornamen Bunga di Pojok -->
+        <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/bunga%20pinggiran.webp?raw=true" class="pre-cover-ornament top-left" alt="Ornamen Bunga">
+        <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/bunga%20pinggiran.webp?raw=true" class="pre-cover-ornament top-right" alt="Ornamen Bunga">
+        <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/bunga%20pinggiran.webp?raw=true" class="pre-cover-ornament bottom-left" alt="Ornamen Bunga">
+        <img src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/bunga%20pinggiran.webp?raw=true" class="pre-cover-ornament bottom-right" alt="Ornamen Bunga">
+
+
         <!-- [DIUBAH] Menghapus rotasi, kembali ke tampilan tegak -->
         <div id="gift-box" style="position: relative; width: 200px; height: 200px; cursor: pointer; perspective: 1000px;">
             <!-- [DIUBAH] Tutup Kado dengan Gradien dan Bayangan -->
@@ -919,6 +927,39 @@
     </div>
     
     <style>
+        /* [BARU] Styling untuk ornamen bunga di pre-cover */
+        .pre-cover-ornament {
+            position: absolute;
+            width: clamp(150px, 30vw, 250px); /* [DIUBAH] Ukuran diperbesar */
+            z-index: 201;
+            pointer-events: none;
+            opacity: 0;
+            animation: ornament-fade-in 1.5s ease-out 0.5s forwards;
+        }
+        .pre-cover-ornament.top-left {
+            top: 0; /* [DIUBAH] Menghilangkan jarak */
+            left: 0; /* [DIUBAH] Menghilangkan jarak */
+        }
+        .pre-cover-ornament.top-right {
+            top: 0; /* [DIUBAH] Menghilangkan jarak */
+            right: 0; /* [DIUBAH] Menghilangkan jarak */
+            transform: scaleX(-1);
+        }
+        .pre-cover-ornament.bottom-left {
+            bottom: 0; /* [DIUBAH] Menghilangkan jarak */
+            left: 0; /* [DIUBAH] Menghilangkan jarak */
+            transform: scaleY(-1);
+        }
+        .pre-cover-ornament.bottom-right {
+            bottom: 0; /* [DIUBAH] Menghilangkan jarak */
+            right: 0; /* [DIUBAH] Menghilangkan jarak */
+            transform: scale(-1, -1);
+        }
+        @keyframes ornament-fade-in {
+            to {
+                opacity: 1; /* [DIUBAH] Opacity diubah menjadi 1 agar tidak buram */
+            }
+        }
         /* [BARU] Keyframes untuk animasi kado yang lebih dinamis */
         /* [DIUBAH] Menyesuaikan animasi terbang kembali ke versi tegak */
         @keyframes lid-lift {
@@ -1047,7 +1088,7 @@
         <div id="invitation-content" style="display: none;">
             
             <!-- Music Player & Control Button -->
-            <audio id="background-music" loop src="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/lalalele.mp3"></audio>
+            <audio id="background-music" loop src="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/raw/refs/heads/main/ABBA%20-%20Dancing%20Queen%20(Official%20Music%20Video).mp3"></audio>
 
             <!-- Hero & Countdown Section -->
             <section class="hero">     
@@ -1148,9 +1189,9 @@
                                 <legend>Konfirmasi Kehadiran</legend>
                                 <div class="kehadiran-options">
                                     <input type="radio" id="attending-yes" name="kehadiran" value="Hadir" required>
-                                    <label for="attending-yes">Akan Hadir</label>
+                                    <label for="attending-yes">Hadir</label>
                                     <input type="radio" id="attending-no" name="kehadiran" value="Tidak Hadir">
-                                    <label for="attending-no">Tidak Bisa Hadir</label>
+                                    <label for="attending-no">Tidak Hadir</label>
                                 </div>
                             </fieldset>
                         </div>
@@ -1446,7 +1487,7 @@
             if (rsvpForm) {
                 rsvpForm.addEventListener('submit', (e) => {
                     e.preventDefault(); 
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbx_8tZufKCybVzF5kOBYaHBQB73C6dhQYwaMkYVMp4co2aXX-nUHST7yfTN-0Cw4JEZ/exec'; // Ganti dengan URL Anda
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzT-4MQcqBIK-cKwBbwpuFQFM-Ooe_gm_k5VblFNImhL6w8OiIMgwcFOiFaVvctWE764w/exec'; // Ganti dengan URL Anda
                     const submitButton = rsvpForm.querySelector('.rsvp-button'); 
                     
                     submitButton.disabled = true;
@@ -1521,7 +1562,7 @@
             }
 
             const loadWishes = () => {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbx_8tZufKCybVzF5kOBYaHBQB73C6dhQYwaMkYVMp4co2aXX-nUHST7yfTN-0Cw4JEZ/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzT-4MQcqBIK-cKwBbwpuFQFM-Ooe_gm_k5VblFNImhL6w8OiIMgwcFOiFaVvctWE764w/exec';
                 const galleryContainer = document.getElementById('wishes-gallery-container');
 
                 fetch(scriptURL)
