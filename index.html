@@ -14,13 +14,13 @@
     <!-- === META TAGS FOR SOCIAL MEDIA SHARING (WhatsApp, Facebook, etc.) === -->
     <meta property="og:title" content="Undangan Ulang Tahun: Sweet Seventeen Nurlia Bintang Oktavianti">
     <meta property="og:description" content="Hadirilah perayaan hari spesial Nurlia Bintang Oktavianti pada hari Sabtu, 4 Oktober 2025 pukul 16:00 WITA di Karangasem, Bali.">
-    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/wayanku/undangan-ulang-tahun-oktavianti@main/Desain%20tanpa%20judul%20(3)%20(1).png">
-    <!-- URL sudah disesuaikan dengan link live undangan Anda -->
-    <meta property="og:url" content="https://wayanku.github.io/undangan-ulang-tahun-oktavianti/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/Desain%20tanpa%20judul%20(2)%20(2).webp" id="meta-og-image">
+    <!-- GANTI URL DI BAWAH INI DENGAN LINK LIVE UNDANGAN ANDA (SUDAH SESUAI) -->
+    <meta property="og:url" content="https://wayanku.github.io/birth-day-invitation-gusti-ayu-/">
     <meta property="og:type" content="website">
     
     <!-- [BARU] Menambahkan Favicon untuk ikon di tab browser -->
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/wayanku/undangan-ulang-tahun-oktavianti@main/Desain%20tanpa%20judul%20(3)%20(1).png" type="image/png">
+    <link rel="icon" href="https://raw.githubusercontent.com/wayanku/birth-day-invitation-gusti-ayu-/main/foto%20sweet.webp" type="image/webp" id="favicon">
 
     <!-- Loading Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1281,7 +1281,109 @@
         /* =================================
            JAVASCRIPT (INTERACTIVITY) SECTION
            ================================= */
+
+        // --- [BARU] PUSAT KONTROL DATA UNDANGAN ---
+        const invitationData = {
+            person: {
+                name: "Nurlia Bintang Oktavianti",
+                nickname: "Olin",
+                eventTitle: "Sweet Seventeen"
+            },
+            event: {
+                day: "Sabtu",
+                date: "04 Oktober 2025",
+                time: "16:00 WITA - Selesai",
+                location: "Musholla An-Nuur, Rendang, Kecamatan Rendang, Kabupaten Karangasem",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.731733614912!2d115.4022206748281!3d-8.525623091566874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21104a1b12b12b%3A0x8673a68198b824e9!2sJl.%20Werkudara%2C%2C%20Semarapura%20Klod%20Kangin%2C%20Kec.%20Klungkung%2C%20Kabupaten%20Klungkung%2C%20Bali!5e0!3m2!1sen!2sid!4v1694086581457!5m2!1sen!2sid",
+                dresscode: "Hitam-Putih",
+                countdownTime: "2025-10-04T16:00:00"
+            },
+            gift: {
+                bankName: "DANA",
+                accountHolder: "Nurlia Bintang Oktavianti",
+                accountNumber: "081234567890",
+                bankLogoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/2560px-Logo_dana_blue.svg.png"
+            },
+            images: {
+                favicon: "https://cdn.jsdelivr.net/gh/wayanku/undangan-ulang-tahun-oktavianti@main/Desain%20tanpa%20judul%20(3)%20(1).png",
+                ogImage: "https://cdn.jsdelivr.net/gh/wayanku/undangan-ulang-tahun-oktavianti@main/Desain%20tanpa%20judul%20(3)%20(1).png",
+                coverBackground: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20(1).png?raw=true",
+                mainBackground: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20isi.webp?raw=true",
+                preCoverBackground: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/latar%20(1).png?raw=true",
+                preCoverOrnaments: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/bunga%20pinggiran.webp?raw=true",
+                seventeenIcon: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/17.webp?raw=true",
+                balloonsLeft: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/balon%20pjok%20.webp?raw=true",
+                balloonsRight: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/ini%20sebelah%20kanan%20.png?raw=true",
+                eventCardImage: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/Desain%20tanpa%20judul%20(4)%20(1).png?raw=true"
+            },
+            music: "https://github.com/wayanku/undangan-ulang-tahun-oktavianti/raw/refs/heads/main/ABBA%20-%20Dancing%20Queen%20(Official%20Music%20Video).mp3",
+            creator: {
+                name: "storybali undangan",
+                instagram: "https://www.instagram.com/storybali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+                profileImage: "https://i.postimg.cc/2SBR9QZJ/IMG-6302-1.jpg"
+            },
+            assistant: {
+                name: "wayan Ai",
+                url: "https://wayanku.github.io/Wayan-ai-dari-storybali/",
+                profileImage: "https://i.postimg.cc/D0YHB0yn/Desain-tanpa-judul-1.png"
+            }
+        };
+
+        // --- [BARU] FUNGSI UNTUK MENGISI DATA KE HTML ---
+        const fillData = () => {
+            const data = invitationData;
+
+            // Meta Tags
+            document.querySelector('meta[property="og:title"]').content = `Undangan Ulang Tahun: ${data.person.eventTitle} ${data.person.name}`;
+            document.querySelector('meta[property="og:description"]').content = `Hadirilah perayaan hari spesial ${data.person.name} pada hari ${data.event.day}, ${data.event.date} pukul ${data.event.time.split(' ')[0]} WITA.`;
+            document.getElementById('meta-og-image').content = data.images.ogImage;
+            document.getElementById('favicon').href = data.images.favicon;
+
+            // Pre-Cover & Cover
+            document.getElementById('pre-cover').style.backgroundImage = `url('${data.images.preCoverBackground}')`;
+            document.querySelectorAll('.pre-cover-ornament').forEach(el => el.src = data.images.preCoverOrnaments);
+            document.getElementById('cover').style.backgroundImage = `url('${data.images.coverBackground}')`;
+            document.querySelector('.sweet-card .card-name').textContent = data.person.name;
+            document.querySelector('.sweet-card .card-info h4').textContent = `UNDANGAN ${data.person.eventTitle.toUpperCase()}`;
+            document.querySelector('.sweet-card .card-info p').textContent = `${data.event.day}, ${data.event.date}`;
+            document.querySelector('.sweet-card img').src = data.images.seventeenIcon;
+            document.querySelector('.cover-balloons').src = data.images.balloonsLeft;
+            document.querySelector('.cover-balloons-right').src = data.images.balloonsRight;
+
+            // Konten Utama
+            document.querySelector('.main-background').style.backgroundImage = `url('${data.images.mainBackground}')`;
+            document.getElementById('background-music').src = data.music;
+            document.querySelector('.event-card-image-wrapper img').src = data.images.eventCardImage;
+            document.querySelector('.date-section .date-number').textContent = data.event.date.split(' ')[0];
+            document.querySelector('.date-section .date-text').innerHTML = `<strong>${data.event.day}</strong><br>${data.event.date.split(' ')[1]}<br>${data.event.date.split(' ')[2]}`;
+            document.querySelector('.event-details-main p:nth-of-type(1)').innerHTML = `<strong>${data.event.time}</strong>`;
+            document.querySelector('.event-details-main p:nth-of-type(2)').textContent = data.event.dresscode;
+            document.querySelector('.event-details-main p:nth-of-type(4)').textContent = data.event.location;
+            document.querySelector('.map-button-outline').href = data.event.mapUrl;
+
+            // Hadiah
+            document.querySelector('.digital-gift-front .bank-logo').src = data.gift.bankLogoUrl;
+            document.querySelector('.digital-gift-front .card-holder').textContent = data.gift.accountHolder;
+            document.getElementById('account-number').textContent = data.gift.accountNumber;
+            document.querySelector('.digital-gift-back .card-holder').textContent = `a.n. ${data.gift.accountHolder}`;
+            document.getElementById('copy-button').dataset.rekening = data.gift.accountNumber;
+
+            // Footer
+            document.querySelector('.footer-credit .creator-profile:nth-child(1) img').src = data.creator.profileImage;
+            document.querySelector('.footer-credit .creator-profile:nth-child(1) a').href = data.creator.instagram;
+            document.querySelector('.footer-credit .creator-profile:nth-child(1) a').textContent = data.creator.name;
+            document.querySelector('.footer-credit .creator-profile:nth-child(3) img').src = data.assistant.profileImage;
+            document.querySelector('.footer-credit .creator-profile:nth-child(3) a').href = data.assistant.url;
+            document.querySelector('.footer-credit .creator-profile:nth-child(3) a').textContent = data.assistant.name;
+        };
+
+        /* =================================
+           JAVASCRIPT (INTERACTIVITY) SECTION
+           ================================= */
         document.addEventListener('DOMContentLoaded', () => {
+            // --- [BARU] Panggil fungsi untuk mengisi data ---
+            fillData();
+
             // --- [BARU] PRE-COVER ELEMENTS ---
             const preCover = document.getElementById('pre-cover');
             const openGiftButton = document.getElementById('open-gift-button');
